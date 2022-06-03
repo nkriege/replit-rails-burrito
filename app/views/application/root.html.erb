@@ -1,0 +1,17 @@
+<div class="application_root">
+  <div class="customers">
+    <%= image_tag("crown.svg", class: "logo") %>
+    <h1>Burrito King</h1>
+    <%= link_to("Place an order", new_order_path, class: "order") %>
+  </div>
+
+  <div class="employees">
+    <h2>Employees Only</h2>
+    <ul>
+      <li><%= link_to("Edit menu", fillings_path) %></li>
+      <li><%= link_to("View orders", orders_path) %></li>
+    </ul>
+  </div>
+
+
+</div>

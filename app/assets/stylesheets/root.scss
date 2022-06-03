@@ -1,0 +1,25 @@
+.application_root {
+  margin: 4rem;
+
+  .customers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    height: 12rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  .order {
+    font-size: 120%;
+  }
+
+  .employees {
+    margin-top: 6rem;
+  }
+}

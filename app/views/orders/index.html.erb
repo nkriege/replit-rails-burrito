@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Orders</h1>
+
+<% if @orders.length > 0 %>
+  <table id="orders">
+    <tr>
+      <th>Customer</th>
+      <th>Tortilla/Rice/Beans</th>
+      <th>Filling</th>
+      <th>Toppings</th>
+      <th>Delivery</th>
+    </tr>
+
+    <% @orders.each do |order| %>
+      <tr>
+        <td>
+        <% customer = "#{order.first_name} #{order.last_name} (#{order.email} / #{order.phone})" %>
+          <%= link_to(truncate(customer, length: 80), edit_order_path(order)) %>
+        </td>
+        <td><%= "#{order.tortilla}/#{order.rice}/#{order.beans}" %></td>
+        <td><%= order.filling.name %></td>
+        <td><%= "todo" %></td>        
+        <td><%= order.delivery ? "yes" : "no" %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<%= link_to "New order", new_order_path %>

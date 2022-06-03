@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsRuby3</title>
+    <title>Burrito King</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +10,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% if !current_page?(root_path) %>
+      <div class="navbar">
+        <a class="link-home" href="/">
+          <%= image_tag("crown.svg", class: "logo") %>
+          <div>Burrito King</div>
+        </a>
+      </div>
+    <% end %>
+
+    <div class="main-container">
+      <%= yield %>
+    </div>
   </body>
 </html>

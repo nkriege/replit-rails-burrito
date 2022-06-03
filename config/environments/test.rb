@@ -57,4 +57,8 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+
+  # Set a css_compressor so sassc-rails does not overwrite the compressor when running the tests
+  # https://github.com/sass/sassc-rails/issues/93
+  config.assets.css_compressor = nil
 end

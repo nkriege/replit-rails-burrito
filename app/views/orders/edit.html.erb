@@ -1,0 +1,15 @@
+<h1>Editing order</h1>
+
+<%= render "form", order: @order %>
+
+<br>
+
+<div>
+  <%= link_to "Back to orders", orders_path %>
+</div>
+
+<br>
+
+<div>
+  <%= button_to "Destroy this order", @order, method: :delete %>
+</div>

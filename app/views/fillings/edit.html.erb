@@ -1,0 +1,15 @@
+<h1>Editing filling</h1>
+
+<%= render "form", filling: @filling %>
+
+<br>
+
+<div>
+  <%= link_to "Back to fillings", fillings_path %>
+</div>
+
+<br>
+
+<div>
+  <%= button_to "Destroy this filling", @filling, method: :delete %>
+</div>
