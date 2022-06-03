@@ -1,0 +1,103 @@
+require:
+  - rubocop-rails
+
+Rails:
+  Enabled: true
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "db/schema.rb"
+    - "node_modules/**/*"
+    - "vendor/**/*"
+    - "bin/*"
+    - "db/seeds.rb"
+
+#
+# customizations
+#
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  EnforcedStyle: space
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+Layout/CaseIndentation:
+  EnforcedStyle: end
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+Style/CollectionMethods:
+  Enabled: true
+  PreferredMethods:
+    reduce: inject
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+#
+# disable
+#
+
+Layout/EmptyLineAfterGuardClause: { Enabled: false }
+Layout/EmptyLineBetweenDefs: { Enabled: false }
+Layout/LineLength: { Enabled: false }
+Layout/TrailingEmptyLines: { Enabled: false }
+Lint/AssignmentInCondition: { Enabled: false }
+Lint/DuplicateBranch: { Enabled: false }
+Lint/EmptyWhen: { Enabled: false }
+Lint/MixedRegexpCaptureTypes: { Enabled: false }
+Lint/OutOfRangeRegexpRef: { Enabled: false }
+Lint/StructNewOverride: { Enabled: false }
+Lint/SuppressedException: { Enabled: false }
+Lint/UnusedMethodArgument: { Enabled: false }
+Naming/BinaryOperatorParameterName: { Enabled: false }
+Naming/HeredocDelimiterNaming: { Enabled: false }
+Naming/MemoizedInstanceVariableName: { Enabled: false }
+Naming/MethodParameterName: { Enabled: false }
+Naming/VariableNumber: { Enabled: false }
+Performance/CollectionLiteralInLoop: { Enabled: false }
+Performance/RegexpMatch: { Enabled: false }
+Performance/StringReplacement: { Enabled: false }
+Performance/TimesMap: { Enabled: false }
+Rails/AssertNot: { Enabled: false }
+Rails/FilePath: { Enabled: false }
+Rails/HelperInstanceVariable: { Enabled: false }
+Rails/I18nLocaleTexts: { Enabled: false }
+Rails/LexicallyScopedActionFilter: { Enabled: false }
+Rails/Output: { Enabled: false }
+Rails/OutputSafety: { Enabled: false }
+Rails/ReversibleMigration: { Enabled: false }
+Rails/SkipsModelValidations: { Enabled: false }
+Rails/TimeZone: { Enabled: false }
+Style/AccessModifierDeclarations: { Enabled: false }
+Style/AsciiComments: { Enabled: false }
+Style/ClassAndModuleChildren: { Enabled: false }
+Style/ClassVars: { Enabled: false }
+Style/CombinableLoops: { Enabled: false }
+Style/CommentAnnotation: { Enabled: false }
+Style/Documentation: { Enabled: false }
+Style/DoubleNegation: { Enabled: false }
+Style/EmptyCaseCondition: { Enabled: false }
+Style/EmptyElse: { Enabled: false }
+Style/FormatStringToken: { Enabled: false }
+Style/FrozenStringLiteralComment: { Enabled: false }
+Style/GuardClause: { Enabled: false }
+Style/HashTransformValues: { Enabled: false }
+Style/IfUnlessModifier: { Enabled: false }
+Style/MixinUsage: { Enabled: false }
+Style/NegatedIf: { Enabled: false }
+Style/Next: { Enabled: false }
+Style/NumberedParameters: { Enabled: false }
+Style/NumericLiterals: { Enabled: false }
+Style/NumericPredicate: { Enabled: false }
+Style/ParallelAssignment: { Enabled: false }
+Style/PerlBackrefs: { Enabled: false }
+Style/RaiseArgs: { Enabled: false }
+Style/RedundantAssignment: { Enabled: false }
+Style/RegexpLiteral: { Enabled: false }
+Style/ReturnNil: { Enabled: true }
+Style/SoleNestedConditional: { Enabled: false }
+Style/StderrPuts: { Enabled: false }
+Style/TernaryParentheses: { Enabled: false }
+Metrics: { Enabled: false }
+Lint/RedundantCopDisableDirective: { Enabled: false }
