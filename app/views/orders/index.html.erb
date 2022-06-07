@@ -5,6 +5,7 @@
 <% if @orders.length > 0 %>
   <table id="orders">
     <tr>
+      <th>Created</th>
       <th>Customer</th>
       <th>Tortilla/Rice/Beans</th>
       <th>Filling</th>
@@ -14,8 +15,9 @@
 
     <% @orders.each do |order| %>
       <tr>
+        <td><%= order.created_at %></td>
         <td>
-        <% customer = "#{order.first_name} #{order.last_name} (#{order.email} / #{order.phone})" %>
+          <% customer = "#{order.first_name} #{order.last_name}" %>
           <%= link_to(truncate(customer, length: 80), edit_order_path(order)) %>
         </td>
         <td><%= "#{order.tortilla}/#{order.rice}/#{order.beans}" %></td>

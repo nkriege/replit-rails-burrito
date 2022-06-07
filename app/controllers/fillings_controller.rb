@@ -3,11 +3,11 @@ class FillingsController < ApplicationController
 
   # GET /fillings or /fillings.json
   def index
-    @fillings = Filling.all
+    @fillings = Filling.all.order(:name)
   end
 
   def tuples
-    @fillings = Filling.where(available: true)
+    @fillings = Filling.where(available: true).order(:name)
   end
 
   # GET /fillings/1 or /fillings/1.json
