@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[show edit update destroy]
 
+  # CSRF tokens don't work properly in the replit webview iframe
+  skip_before_action :verify_authenticity_token
+
   # GET /orders or /orders.json
   def index
     @orders = Order.all.order(created_at: :desc)

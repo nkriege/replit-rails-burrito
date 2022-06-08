@@ -1,6 +1,9 @@
 class FillingsController < ApplicationController
   before_action :set_filling, only: %i[show edit update destroy]
 
+  # CSRF tokens don't work properly in the replit webview iframe
+  skip_before_action :verify_authenticity_token
+
   # GET /fillings or /fillings.json
   def index
     @fillings = Filling.all.order(:name)
