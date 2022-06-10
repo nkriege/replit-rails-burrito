@@ -1,5 +1,8 @@
 <div class="application_root">
   <div class="customers">
+    <% if notice.present? %>
+      <p style="color: green"><%= notice %></p>
+    <% end %>
     <%= image_tag("crown.svg", class: "logo") %>
     <h1>Burrito King</h1>
     <%= link_to("Place an order", new_order_path, class: "order") %>

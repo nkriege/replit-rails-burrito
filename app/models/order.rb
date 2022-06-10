@@ -1,20 +1,18 @@
 class Order < ApplicationRecord
-  belongs_to :filling
+  belongs_to :filling, optional: true
 
   BEANS = %w[Black Pinto None].freeze
   RICE = %w[White Brown None].freeze
-  TORTILLAS = %w[Corn Flour Bowl].freeze
+  TORTILLAS = %w[Corn Flour None].freeze
 
   TOPPINGS_ATTRS = %w[cheese lettuce guacamole salsa sour_cream].freeze
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :email, presence: true
-  validates :phone, presence: true
+  validates :name_first, presence: true
+  validates :name_last, presence: true
 
-  validates :beans, presence: true, inclusion: BEANS
-  validates :rice, presence: true, inclusion: RICE
-  validates :tortilla, presence: true, inclusion: TORTILLAS
+  validates :beans, inclusion: BEANS, allow_nil: true
+  validates :rice, inclusion: RICE, allow_nil: true
+  validates :tortilla, inclusion: TORTILLAS, allow_nil: true
 
   # Need valid address on delivery orders
   validates(:delivery_street1,

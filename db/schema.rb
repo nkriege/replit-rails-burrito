@@ -23,30 +23,30 @@ ActiveRecord::Schema.define(version: 2022_06_06_215704) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "email", null: false
-    t.string "phone", null: false
-    t.string "tortilla", null: false
-    t.string "rice", null: false
-    t.string "beans", null: false
+    t.string "name_first", null: false
+    t.string "name_last", null: false
+    t.string "email"
+    t.string "phone"
+    t.string "favorite_color"
+    t.string "tortilla"
+    t.string "rice"
+    t.string "beans"
+    t.text "instructions"
     t.boolean "delivery", default: false, null: false
     t.string "delivery_street1"
     t.string "delivery_street2"
     t.string "delivery_zip"
     t.string "delivery_city"
     t.string "delivery_state"
-    t.text "instructions"
     t.boolean "cheese", default: false, null: false
     t.boolean "lettuce", default: false, null: false
     t.boolean "guacamole", default: false, null: false
     t.boolean "salsa", default: false, null: false
     t.boolean "sour_cream", default: false, null: false
-    t.integer "filling_id", null: false
+    t.integer "filling_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["filling_id"], name: "index_orders_on_filling_id"
   end
 
-  add_foreign_key "orders", "fillings"
 end

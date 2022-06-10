@@ -2,7 +2,7 @@ require 'test_helper'
 
 class OrdersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @order = create(:order)
+    @order = create(:order_with_filling)
   end
 
   test 'should get index' do
@@ -19,14 +19,72 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Order.count') do
       post orders_url, params: {
         order: {
-          first_name: 'Jane',
-          last_name: 'Doe',
+          name_first: 'Jane',
+          name_last: 'Doe',
+          email: 'test@test.com',
+          phone: '+12065551212',
+          favorite_color: 'Red',
+        },
+      }
+    end
+
+    assert_redirected_to root_url
+  end
+
+  test 'should create order with ingredients' do
+    assert_difference('Order.count') do
+      post orders_url, params: {
+        order: {
+          name_first: 'Jane',
+          name_last: 'Doe',
+          email: 'test@test.com',
+          phone: '+12065551212',
+          tortilla: 'Corn',
+          rice: 'Brown',
+          beans: 'Black',
+        },
+      }
+    end
+
+    assert_redirected_to root_url
+  end
+
+  test 'should create order with filling' do
+    assert_difference('Order.count') do
+      post orders_url, params: {
+        order: {
+          name_first: 'Jane',
+          name_last: 'Doe',
           email: 'test@test.com',
           phone: '+12065551212',
           tortilla: 'Corn',
           rice: 'Brown',
           beans: 'Black',
           filling_id: Filling.first.id,
+        },
+      }
+    end
+
+    assert_redirected_to root_url
+  end
+
+  test 'should create order with delivery' do
+    assert_difference('Order.count') do
+      post orders_url, params: {
+        order: {
+          name_first: 'Jane',
+          name_last: 'Doe',
+          email: 'test@test.com',
+          phone: '+12065551212',
+          tortilla: 'Corn',
+          rice: 'Brown',
+          beans: 'Black',
+          filling_id: Filling.first.id,
+          delivery: 'true',
+          delivery_street1: '111 Main Street',
+          delivery_city: 'Seattle',
+          delivery_state: 'WA',
+          delivery_zip: '98101',
         },
       }
     end
@@ -47,13 +105,13 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   test 'should update order' do
     patch order_url(@order), params: {
       order: {
-        first_name: 'Updated',
+        name_first: 'Updated',
         toppings: %w[Salsa Lettuce],
       },
     }
     assert_redirected_to orders_url
     @order.reload
-    assert_equal('Updated', @order.first_name)
+    assert_equal('Updated', @order.name_first)
     assert(@order.salsa)
     assert(@order.lettuce)
   end

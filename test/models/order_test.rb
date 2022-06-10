@@ -4,6 +4,15 @@ class OrderTest < ActiveSupport::TestCase
   test 'creation' do
     order = create(:order)
     assert order.valid?
+
+    order = create(:order_with_ingredients)
+    assert order.valid?
+
+    order = create(:order_with_filling)
+    assert order.valid?
+
+    order = create(:order_with_delivery)
+    assert order.valid?
   end
 
   test 'validate tortilla' do

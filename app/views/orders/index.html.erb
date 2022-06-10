@@ -7,9 +7,10 @@
     <tr>
       <th>Created</th>
       <th>Customer</th>
-      <th>Tortilla/Rice/Beans</th>
+      <th>Tortilla</th>
+      <th>Rice</th>
+      <th>Beans</th>
       <th>Filling</th>
-      <th>Toppings</th>
       <th>Delivery</th>
     </tr>
 
@@ -17,11 +18,12 @@
       <tr>
         <td><%= link_to(order.created_at, edit_order_path(order)) %></td>
         <td>
-          <%= truncate("#{order.first_name} #{order.last_name}", length: 80) %>
+          <%= truncate("#{order.name_first} #{order.name_last}", length: 80) %>
         </td>
-        <td><%= "#{order.tortilla}/#{order.rice}/#{order.beans}" %></td>
-        <td><%= order.filling.name %></td>
-        <td><%= order.toppings.map(&:first).join(', ') %></td>
+        <td><%= order.tortilla %></td>
+        <td><%= order.rice %></td>
+        <td><%= order.beans %></td>
+        <td><%= order.filling&.name %></td>
         <td><%= order.delivery ? "yes" : "no" %></td>
       </tr>
     <% end %>

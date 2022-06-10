@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root 'application#root'
+  get '/colors', constraints: { format: 'json' }, to: 'application#colors'
+
   resources :fillings do
     collection do
       get :tuples, constraints: { format: 'json' }
@@ -6,7 +9,4 @@ Rails.application.routes.draw do
   end
 
   resources :orders
-
-  # Defines the root path route ("/")
-  root 'application#root'
 end

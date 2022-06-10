@@ -2,28 +2,34 @@ class CreateOrders < ActiveRecord::Migration[7.0]
   def change
     create_table :orders do |t|
       #
-      # required
+      # customer info
       #
 
-      t.string :first_name, null: false
-      t.string :last_name, null: false
-      t.string :email, null: false
-      t.string :phone, null: false
-      t.string :tortilla, null: false
-      t.string :rice, null: false
-      t.string :beans, null: false
+      t.string :name_first, null: false
+      t.string :name_last, null: false
+      t.string :email
+      t.string :phone
+      t.string :favorite_color
+
+      #
+      # ingredients
+      #
+
+      t.string :tortilla
+      t.string :rice
+      t.string :beans
+      t.text :instructions
+
+      #
+      # delivery
+      #
+
       t.boolean :delivery, null: false, default: false
-
-      #
-      # optional
-      #
-
       t.string :delivery_street1
       t.string :delivery_street2
       t.string :delivery_zip
       t.string :delivery_city
       t.string :delivery_state
-      t.text :instructions
 
       #
       # toppings
@@ -39,7 +45,7 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       # associations
       #
 
-      t.references :filling, null: false, foreign_key: true
+      t.references :filling, null: true, foreign_key: false
 
       t.timestamps
     end

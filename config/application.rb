@@ -22,5 +22,9 @@ module RailsRuby3
     config.action_dispatch.default_headers = {
       'X-Frame-Options' => 'ALLOWFROM replit.com',
     }
+
+    config.autoload_paths << "#{Rails.root}/lib" if !Rails.env.production?
+    config.eager_load_paths << Rails.root.join('lib') if Rails.env.production?
+
   end
 end
