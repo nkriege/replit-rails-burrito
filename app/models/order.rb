@@ -3,7 +3,7 @@ class Order < ApplicationRecord
 
   BEANS = %w[Black Pinto None].freeze
   RICE = %w[White Brown None].freeze
-  TORTILLAS = %w[Corn Flour None].freeze
+  TORTILLAS = %w[Corn Flour Wheat None].freeze
 
   TOPPINGS_ATTRS = %w[cheese lettuce guacamole salsa sour_cream].freeze
 

@@ -17,7 +17,7 @@ module Color
     Cyan
     Firebrick
     Fuchsia
-    Gainsboro*
+    Gainsboro
     Gold
     Goldenrod
     Gray
