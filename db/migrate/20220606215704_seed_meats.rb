@@ -1,8 +1,8 @@
-class SeedFillings < ActiveRecord::Migration[7.0]
+class SeedMeats < ActiveRecord::Migration[7.0]
   def change
     reversible do |dir|
       dir.up do
-        Filling.create!(
+        Meat.create!(
           name: 'Chicken',
           description: 'Free-range organic chicken, grilled to perfection.',
           price: 9.00,
@@ -10,7 +10,7 @@ class SeedFillings < ActiveRecord::Migration[7.0]
           available: true
         )
 
-        Filling.create!(
+        Meat.create!(
           name: 'Beef',
           description: 'Organic, grass-fed beef marinated in herbs and spices.',
           price: 9.50,
@@ -18,7 +18,7 @@ class SeedFillings < ActiveRecord::Migration[7.0]
           available: true
         )
 
-        Filling.create!(
+        Meat.create!(
           name: 'Vegetarian',
           description: 'Peppers, onions, and greens.',
           price: 8.50,
@@ -27,7 +27,7 @@ class SeedFillings < ActiveRecord::Migration[7.0]
         )
       end
       dir.down do
-        Filling.destroy_all
+        Meat.destroy_all
       end
     end
   end

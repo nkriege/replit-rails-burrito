@@ -25,6 +25,5 @@ module RailsRuby3
 
     config.autoload_paths << "#{Rails.root}/lib" if !Rails.env.production?
     config.eager_load_paths << Rails.root.join('lib') if Rails.env.production?
-
   end
 end

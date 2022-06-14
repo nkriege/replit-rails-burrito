@@ -2,7 +2,7 @@ require 'test_helper'
 
 class OrdersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @order = create(:order_with_filling)
+    @order = create(:order_with_meat)
   end
 
   test 'should get index' do
@@ -49,7 +49,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
 
-  test 'should create order with filling' do
+  test 'should create order with meat' do
     assert_difference('Order.count') do
       post orders_url, params: {
         order: {
@@ -60,7 +60,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
           tortilla: 'Corn',
           rice: 'Brown',
           beans: 'Black',
-          filling_id: Filling.first.id,
+          meat_id: Meat.first.id,
         },
       }
     end
@@ -79,12 +79,12 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
           tortilla: 'Corn',
           rice: 'Brown',
           beans: 'Black',
-          filling_id: Filling.first.id,
+          meat_id: Meat.first.id,
           delivery: 'true',
-          delivery_street1: '111 Main Street',
-          delivery_city: 'Seattle',
-          delivery_state: 'WA',
-          delivery_zip: '98101',
+          address_street1: '111 Main Street',
+          address_city: 'Seattle',
+          address_state: 'WA',
+          address_zip: '98101',
         },
       }
     end

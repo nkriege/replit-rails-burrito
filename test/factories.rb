@@ -1,7 +1,7 @@
 FactoryBot.define do
-  factory :filling do
-    sequence(:name) { |n| "filling#{n}" }
-    sequence(:description) { |n| "Description of filling#{n}" }
+  factory :meat do
+    sequence(:name) { |n| "meat#{n}" }
+    sequence(:description) { |n| "Description of meat#{n}" }
     price { 1.00 }
     calories { 100 }
   end
@@ -17,15 +17,15 @@ FactoryBot.define do
       rice { 'Brown' }
       beans { 'Black' }
 
-      factory :order_with_filling do
-        filling
+      factory :order_with_meat do
+        meat
 
         factory :order_with_delivery do
           delivery { true }
-          delivery_street1 { '111 Main Street' }
-          delivery_city { 'Seattle' }
-          delivery_state { 'WA' }
-          delivery_zip { '98101' }
+          address_street1 { '111 Main Street' }
+          address_city { 'Seattle' }
+          address_state { 'WA' }
+          address_zip { '98101' }
         end
       end
     end

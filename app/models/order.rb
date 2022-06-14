@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  belongs_to :filling, optional: true
+  belongs_to :meat, optional: true
 
   BEANS = %w[Black Pinto None].freeze
   RICE = %w[White Brown None].freeze
@@ -15,10 +15,10 @@ class Order < ApplicationRecord
   validates :tortilla, inclusion: TORTILLAS, allow_nil: true
 
   # Need valid address on delivery orders
-  validates(:delivery_street1,
-            :delivery_zip,
-            :delivery_city,
-            :delivery_state,
+  validates(:address_street1,
+            :address_zip,
+            :address_city,
+            :address_state,
             presence: true,
             if: :delivery)
 

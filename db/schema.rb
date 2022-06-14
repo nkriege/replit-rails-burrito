@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_06_06_215704) do
 
-  create_table "fillings", force: :cascade do |t|
+  create_table "meats", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
     t.decimal "price", precision: 5, scale: 2, null: false
@@ -33,20 +33,20 @@ ActiveRecord::Schema.define(version: 2022_06_06_215704) do
     t.string "beans"
     t.text "instructions"
     t.boolean "delivery", default: false, null: false
-    t.string "delivery_street1"
-    t.string "delivery_street2"
-    t.string "delivery_zip"
-    t.string "delivery_city"
-    t.string "delivery_state"
+    t.string "address_street1"
+    t.string "address_street2"
+    t.string "address_zip"
+    t.string "address_city"
+    t.string "address_state"
     t.boolean "cheese", default: false, null: false
     t.boolean "lettuce", default: false, null: false
     t.boolean "guacamole", default: false, null: false
     t.boolean "salsa", default: false, null: false
     t.boolean "sour_cream", default: false, null: false
-    t.integer "filling_id"
+    t.integer "meat_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["filling_id"], name: "index_orders_on_filling_id"
+    t.index ["meat_id"], name: "index_orders_on_meat_id"
   end
 
 end

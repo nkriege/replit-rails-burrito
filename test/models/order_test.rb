@@ -8,7 +8,7 @@ class OrderTest < ActiveSupport::TestCase
     order = create(:order_with_ingredients)
     assert order.valid?
 
-    order = create(:order_with_filling)
+    order = create(:order_with_meat)
     assert order.valid?
 
     order = create(:order_with_delivery)
@@ -26,12 +26,12 @@ class OrderTest < ActiveSupport::TestCase
     order = build(:order, delivery: true)
     assert !order.valid?
 
-    order.delivery_street1 = '123 Main St'
-    order.delivery_city = 'Seattle'
-    order.delivery_state = 'WA'
+    order.address_street1 = '123 Main St'
+    order.address_city = 'Seattle'
+    order.address_state = 'WA'
     assert !order.valid?
 
-    order.delivery_zip = '98101'
+    order.address_zip = '98101'
     assert order.valid?
   end
 

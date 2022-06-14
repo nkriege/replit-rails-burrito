@@ -1,0 +1,15 @@
+<h1>Editing meat</h1>
+
+<%= render "form", meat: @meat %>
+
+<br>
+
+<div>
+  <%= link_to "Back to meats", meats_path %>
+</div>
+
+<br>
+
+<div>
+  <%= button_to "Destroy this meat", @meat, method: :delete %>
+</div>

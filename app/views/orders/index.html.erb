@@ -10,7 +10,7 @@
       <th>Tortilla</th>
       <th>Rice</th>
       <th>Beans</th>
-      <th>Filling</th>
+      <th>Meat</th>
       <th>Delivery</th>
     </tr>
 
@@ -23,7 +23,7 @@
         <td><%= order.tortilla %></td>
         <td><%= order.rice %></td>
         <td><%= order.beans %></td>
-        <td><%= order.filling&.name %></td>
+        <td><%= order.meat&.name %></td>
         <td><%= order.delivery ? "yes" : "no" %></td>
       </tr>
     <% end %>

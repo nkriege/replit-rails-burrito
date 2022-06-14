@@ -25,11 +25,11 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       #
 
       t.boolean :delivery, null: false, default: false
-      t.string :delivery_street1
-      t.string :delivery_street2
-      t.string :delivery_zip
-      t.string :delivery_city
-      t.string :delivery_state
+      t.string :address_street1
+      t.string :address_street2
+      t.string :address_zip
+      t.string :address_city
+      t.string :address_state
 
       #
       # toppings
@@ -45,7 +45,7 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       # associations
       #
 
-      t.references :filling, null: true, foreign_key: false
+      t.references :meat, null: true, foreign_key: false
 
       t.timestamps
     end

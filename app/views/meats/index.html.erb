@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Meats</h1>
+
+<% if @meats.length > 0 %>
+  <table id="meats">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Calories</th>
+      <th>Available</th>
+    </tr>
+
+    <% @meats.each do |meat| %>
+      <tr>
+        <td><%= link_to(meat.name, edit_meat_path(meat)) %></td>
+        <td><%= truncate(meat.description, length: 50) %></td>
+        <td><%= number_to_currency(meat.price) %></td>
+        <td><%= meat.calories %></td>
+        <td><%= meat.available ? "yes" : "no" %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<%= link_to "New meat", new_meat_path %>

@@ -1,4 +1,4 @@
-class Filling < ApplicationRecord
+class Meat < ApplicationRecord
   has_many :orders, dependent: :nullify
 
   validates :name, presence: true
